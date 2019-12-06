@@ -1,0 +1,426 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+/* ol, ul {
+	list-style: none;
+} */
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Set every element's box-sizing to border-box */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+/* Copy and paste your work from yesterday here and start to refactor into flexbox */
+
+body {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
+div.topInfo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+div.topInfo div {
+    display: flex;
+    /* width: 80%; */
+    justify-content: space-between;
+    /* border: 3px solid green; */
+}
+
+div.topInfo a {
+    height: min-content;
+    padding-right: 45px;
+	color: gray;
+	text-decoration: unset;
+}
+
+div.topInfo a:hover {
+	text-decoration: underline;
+}
+
+header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+header div.phraseButton {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: min-content;
+}
+
+header img {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.phrase {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+header div.phrase {
+	width: fit-content;
+}
+
+header div.button {
+	border: 2px gray solid;
+	width: fit-content;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+header h1 {
+	font-size: 45px;
+}
+
+hr {
+	border-top: 2px black solid;
+	border-bottom: 0px;
+}
+
+section {
+	display: flex;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+section article {
+	padding-right: 20px;
+}
+
+div.infoDiv {
+	display: flex;
+	flex-direction: column;
+}
+
+section.contactSection {
+	display: flex;
+	flex-direction: column;
+}
+
+footer {
+	text-align: center;
+}
+
+/* End of index.html styling */
+.servicesHeader {
+	/* border: 3px orange solid; */
+	flex-direction: column;
+	overflow: hidden;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+
+
+div.infoBlockDiv {
+	border: 2px black solid;
+	border-radius: 8px;
+	background: lightgray;
+	height: min-content;
+}
+
+div.infoBlockDiv section {
+	padding-top: 15px;
+	padding-left: 15px;
+}
+div.infoBlockDiv div {
+	padding-bottom: 15px;
+	padding-left: 15px;
+}
+
+#infoContainer {
+	display: flex;
+	justify-content: space-evenly;
+	align-content: stretch;
+	height: 795px;
+	/* border: 3px green solid; */
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.containerBlock {
+	display: flex;
+	flex-direction: column;
+	width: 45%;
+	/* border: 3px red solid; */
+	justify-content: space-between;
+}
+
+.buttonLearn {
+	border: 1px black solid;
+	border-radius: 5px;
+	background: white;
+	width: fit-content;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+
+	margin-left: 15px;
+	margin-bottom: 15px;
+}
+
+.list {
+	margin-left: 25px;
+}
+
+div.bottomContainer {
+	display: flex;
+	flex-direction: row;
+	padding-bottom: 20px;
+}
+
+div.bottomContainer div {
+	display: flex;
+	flex-direction: column;
+}
+
+#mostContainer {
+    margin: 0 auto;
+    width: 800px;
+}
+
+.infoDiv div img {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 500px) {
+    #mostContainer {
+        box-sizing: border-box;
+        width: auto;
+    }
+    body {
+        padding: 0;
+        margin: auto;
+    }
+    /* set the nav bar to flex */
+    div.topInfo {
+        display: flex;
+        width: 100%;
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+        /* border: 3px solid green; */
+    }
+
+    div.topInfo div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header div.phraseButton {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .topItem {
+        border-bottom: 1px solid lightgray;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+
+    div.topItem div  {
+        /* border: 3px red solid; */
+        margin: auto;
+        width: 40%;
+    }
+
+    div.topInfo a {
+        order: 1;
+    }
+
+    div.topInfo a:hover {
+        text-decoration: none;
+    }
+    /* no image besides innovation on deman */
+    img.bigImg {
+        display: none;
+    }
+    /* flex all middle content */
+    .infoDiv {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        /* border: 3px orange solid; */
+    }
+    .infoDiv div {
+        width: auto;
+    }
+    .infoDiv div img {
+        width: 100%;
+        height: auto;
+    }
+    section {
+        /* border: 3px green solid; */
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    section article {
+        /* border: 3px red solid; */
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 800px) and (min-width: 501px) {
+    
+    #mostContainer {
+        box-sizing: border-box;
+        width: auto;
+    }
+    body {
+        padding: 0;
+        margin: auto;
+    }
+    /* set the nav bar to flex */
+    div.topInfo {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    div.topInfo div{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    header div.phraseButton {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        padding: 40px;
+    }
+
+    .topItem {
+        /* border-bottom: 1px solid lightgray; */
+        display: flex;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+
+    div.topItem div  {
+        /* border: 3px red solid; */
+        margin: auto;
+        width: 40%;
+    }
+
+    div.topInfo a:hover {
+        text-decoration: none;
+    }
+    /* no image besides innovation on deman */
+    img.bigImg {
+        display: none;
+    }
+    /* flex all middle content */
+    .infoDiv {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        /* border: 3px orange solid; */
+    }
+    .infoDiv div {
+        width: auto;
+    }
+    .infoDiv div img {
+        width: 100%;
+        height: auto;
+    }
+    section {
+        /* border: 3px green solid; */
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    section article {
+        /* border: 3px green solid; */
+        /* width: 30%; */
+        margin-left: 10px
+        padding: 20px 0;
+    }
+}
+
+
+
