@@ -26,12 +26,16 @@
     .project {
         .flex-container(center,center);
         padding-bottom: 2rem;
-        width: 75rem;
+        width: 75%;
         // border: 2px rgb(68, 165, 68) solid;
         // width: 100%;
 
+        @media @mobile {
+            flex-direction: column;
+        }
+
         .content-img {
-            width: 50rem;
+            width: 100%;
             padding-right: 2rem;
 
             img {

@@ -131,7 +131,7 @@ table {
 }
 html {
   font-size: 62.5%;
-  background-color: gray;
+  background-color: white;
 }
 html,
 body {
@@ -169,7 +169,7 @@ img {
   width: 100%;
   margin: 0 auto;
 }
-@media (max-width: 500px) {
+@media (max-width: 750px) {
   .container {
     max-width: auto;
     padding: 20px;
@@ -244,10 +244,15 @@ footer p {
   justify-content: center;
   align-items: center;
   padding-bottom: 2rem;
-  width: 75rem;
+  width: 75%;
+}
+@media (max-width: 750px) {
+  #projects .project {
+    flex-direction: column;
+  }
 }
 #projects .project .content-img {
-  width: 50rem;
+  width: 100%;
   padding-right: 2rem;
 }
 #projects .project .content-img img {

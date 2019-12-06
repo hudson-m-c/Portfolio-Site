@@ -8,31 +8,31 @@ const projects = [
         date: '11/20/2019',
         languages: 'HTML, CSS',
         description: 'Online service for students wanting to learn from volunteers. The website is responsive and backend setup to support users.'
-    },
-    {
-        imgsrc: 'img/school-in-the-cloud.png',
-        title: 'School in the Cloud',
-        titleLink: 'https://github.com/School-in-the-Cloud/UI',
-        date: '11/20/2019',
-        languages: 'HTML, CSS',
-        description: 'Online service for students wanting to learn from volunteers. The website is responsive and backend setup to support users.'
-    },
-    {
-        imgsrc: 'img/school-in-the-cloud.png',
-        title: 'School in the Cloud',
-        titleLink: 'https://github.com/School-in-the-Cloud/UI',
-        date: '11/20/2019',
-        languages: 'HTML, CSS',
-        description: 'Online service for students wanting to learn from volunteers. The website is responsive and backend setup to support users.'
-    },
-    {
-        imgsrc: 'img/school-in-the-cloud.png',
-        title: 'School in the Cloud',
-        titleLink: 'https://github.com/School-in-the-Cloud/UI',
-        date: '11/20/2019',
-        languages: 'HTML, CSS',
-        description: 'Online service for students wanting to learn from volunteers. The website is responsive and backend setup to support users.'
-    },
+    }//,
+    // {
+    //     imgsrc: 'img/school-in-the-cloud.png',
+    //     title: 'School in the Cloud',
+    //     titleLink: 'https://github.com/School-in-the-Cloud/UI',
+    //     date: '11/20/2019',
+    //     languages: 'HTML, CSS',
+    //     description: 'Online service for students wanting to learn from volunteers. The website is responsive and backend setup to support users.'
+    // },
+    // {
+    //     imgsrc: 'img/school-in-the-cloud.png',
+    //     title: 'School in the Cloud',
+    //     titleLink: 'https://github.com/School-in-the-Cloud/UI',
+    //     date: '11/20/2019',
+    //     languages: 'HTML, CSS',
+    //     description: 'Online service for students wanting to learn from volunteers. The website is responsive and backend setup to support users.'
+    // },
+    // {
+    //     imgsrc: 'img/school-in-the-cloud.png',
+    //     title: 'School in the Cloud',
+    //     titleLink: 'https://github.com/School-in-the-Cloud/UI',
+    //     date: '11/20/2019',
+    //     languages: 'HTML, CSS',
+    //     description: 'Online service for students wanting to learn from volunteers. The website is responsive and backend setup to support users.'
+    // },
 ];
 
 const projectsEl = document.querySelector('#projects');
