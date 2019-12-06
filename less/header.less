@@ -1,0 +1,37 @@
+// <header>
+//     <!-- have name here -->
+//     <div class="logo">
+//         <a href="https://github.com/hudson-m-c" target="_blank"> 
+//         <img src="img/github-logo.png" alt="email logo"/>
+//         </a>
+//     </div>
+//     <div>
+//         <h1>Hudson's Portfolio</h1>
+//         <h3>Full-Stack Affecianado</h3>
+//     </div>
+//     <div class="logo">
+//         <a href="mailto:hudson.m.chamberlain@gmail.com">
+//             <img src="img/email-logo.jpg" alt="github logo"/>
+//         </a>
+//     </div>
+// </header>
+
+header {
+    .flex-container(space-evenly, center);
+    height: 200px;
+
+    .header-middle {
+        .flex-container(center, center);
+        flex-direction: column;
+
+        h3 {
+            padding-top: 5%;
+            font-size: 2rem;
+        }
+    }
+
+    .logo {
+        width: 8%;
+    }
+}
+
