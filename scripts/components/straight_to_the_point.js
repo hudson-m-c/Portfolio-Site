@@ -120,5 +120,7 @@ function createStraight() {
     // append the peek text
     straight.appendChild(peekText);
 
+    // TODO: add divider
+
     return straight;
 }

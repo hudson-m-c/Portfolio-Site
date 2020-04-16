@@ -39,5 +39,7 @@ function createHeader() {
     // add link container to header
     header.appendChild(linkContainer);
 
+    // TODO: add divider
+
     return header;
 }

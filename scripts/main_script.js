@@ -9,3 +9,8 @@ document.head.appendChild(headerScript);
 let straightScript = document.createElement('script');
 straightScript.src = './scripts/components/straight_to_the_point.js';
 document.head.appendChild(straightScript);
+
+// add the questions
+let questionsScript = document.createElement('script');
+questionsScript.src = './scripts/components/questions/main_script.js';
+document.head.appendChild(questionsScript);
