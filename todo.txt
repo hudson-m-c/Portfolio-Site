@@ -1,0 +1,4 @@
+This application still needs to have each main-question outfitted with logos, links, lists, etc. 
+As well as styling, specifically for ordering objects in the DOM.
+Color Pallate selection for background, font-family for text, and sizes.
+As well as mobile and tablet constraints (possibly using LESS)
