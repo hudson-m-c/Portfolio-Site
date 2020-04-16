@@ -280,3 +280,7 @@ footer p {
 #projects .project .project-info p {
   font-size: 1.75rem;
 }
+
+.invisible {
+  display: none; 
+}
