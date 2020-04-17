@@ -348,11 +348,49 @@ header h2 {
   font-size: 20px;
   margin-left: 10px;
 }
+/*
+        Skeleton:
+
+        <footer>
+
+            <div className="top-footer">
+                <div/> // empty for spacing
+                <div> // for name
+                    Hudson Chamberlain
+                </div>
+                <div className="links-footer">
+                    <div className="link">Home</div>
+                    <div className="link">Projects</div>
+                    <div className="link">Articles</div>
+                </div>
+            </div>
+
+            <div className="bottom-footer">
+                <p className="copyright">&copy Hudson Chamberlain 2020</p>
+            </div>
+
+        </footer>
+
+    */
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 20px;
+  background-color: green;
 }
 footer p {
   font-size: 1rem;
+  margin-top: 20px;
+}
+footer .top-footer {
+  width: 100%;
+}
+footer .top-footer .links-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }

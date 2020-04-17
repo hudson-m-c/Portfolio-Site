@@ -16,7 +16,7 @@ questionsScript.src = './scripts/components/questions/main_script.js';
 document.head.appendChild(questionsScript);
 
 // // add the footer
-// console.log('adding footer script');
-// const footerScript = document.createElement('script');
-// footerScript.src = "./scripts/components/footer.js";
-// document.head.appendChild(footerScript);
+console.log('adding footer script');
+const footerScript = document.createElement('script');
+footerScript.src = "./scripts/components/footer.js";
+document.head.appendChild(footerScript);

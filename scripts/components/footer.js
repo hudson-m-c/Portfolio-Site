@@ -35,12 +35,12 @@ function createFooter() {
     topFooter.classList.add('top-footer');
 
     // empty div
-    topFooter.appendChild( document.createElement('div') ); // empty div
+    // topFooter.appendChild( document.createElement('div') ); // empty div
     
-    // name div
-    const name = document.createElement('div');
-    name.textContent = "Hudson Chamberlain";
-    topFooter.appendChild(name);
+    // // name div
+    // const name = document.createElement('div');
+    // name.textContent = "Hudson Chamberlain";
+    // topFooter.appendChild(name);
 
     // link div
     const links = document.createElement('div');
