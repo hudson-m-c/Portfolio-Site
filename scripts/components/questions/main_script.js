@@ -89,7 +89,7 @@ function createQuestion(info) {
 // add the rest of the scripts
 let base = './scripts/components/questions/'
 let scripts = [
-    "who.js"//, "what.js", "when.js", "where.js", "why.js"
+    "who.js", "what.js"//, "when.js", "where.js", "why.js"
 ]
 scripts.forEach( curr => {
     console.log('adding script: ', curr);
