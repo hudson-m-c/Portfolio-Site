@@ -225,6 +225,72 @@ img {
   height: 40px;
 }
 /*
+        skeleton:
+
+        <div class='main-questions-container'>
+
+            <div className="main-question main-question-Who">
+
+                <p>Q: {info.question}</p>
+                <div className = "main-question-answer">
+                    <p>A: {info.answer}</p>
+                </div>
+
+            </div>
+
+            ...
+
+        </div>
+
+*/
+.main-questions-container {
+  background-color: orange;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 400px;
+}
+.main-questions-container .main-question {
+  background-color: pink;
+  width: 70%;
+}
+.main-questions-container .main-question .main-question-answer {
+  margin-left: 25px;
+}
+/*
+        skeleton: LogoLink
+
+        <a class='logo-link-container' target='_blank' href={linkSrc}>
+            <div>
+                <img src={logoSrc} />
+            </div>
+            <p>{textToDisplay}</p>
+        </a>
+
+*/
+.logo-link-container {
+  height: 40px;
+  display: flex;
+  justify-content: float-left;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+.logo-link-container p {
+  margin: auto 0;
+  height: 20px;
+}
+.logo-link-container div {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+.logo-link-container div img {
+  width: 100%;
+  height: 100%;
+}
+/*
         skeleton: Header
 
         <header className='header'>

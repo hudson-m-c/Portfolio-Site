@@ -10,10 +10,10 @@ const straightScript = document.createElement('script');
 straightScript.src = './scripts/components/straight_to_the_point.js';
 document.head.appendChild(straightScript);
 
-// // add the questions
-// const questionsScript = document.createElement('script');
-// questionsScript.src = './scripts/components/questions/main_script.js';
-// document.head.appendChild(questionsScript);
+// add the questions
+const questionsScript = document.createElement('script');
+questionsScript.src = './scripts/components/questions/main_script.js';
+document.head.appendChild(questionsScript);
 
 // // add the footer
 // console.log('adding footer script');
