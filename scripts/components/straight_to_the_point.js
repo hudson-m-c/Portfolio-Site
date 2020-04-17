@@ -2,8 +2,8 @@ const straight = createStraight();
 
 document.querySelector('.container').appendChild( straight );
 
-document.querySelector('.question-text-Who').style.fontWeight = 'bold';
-document.querySelector('.peek-text').textContent = 'Hudson Chamberlain';
+// document.querySelector('.question-text-Who').style.fontWeight = 'bold';
+// document.querySelector('.peek-text').textContent = 'Hudson Chamberlain';
 
 function createStraight() {
 
@@ -21,6 +21,12 @@ function createStraight() {
                 </div>
             </div>
             <p class='peek-text'>**Text to display**</p>
+            <div class='see-more'>
+                <span>Read More</span>
+                <div 'point-down-container'>
+                    <img src='point-down-img'/>
+                </div>
+            </div>
         </div>
     */
 
@@ -63,6 +69,8 @@ function createStraight() {
     ]
     const questionContainer = document.createElement('div');
     questionContainer.classList.add('question-container');
+    
+    var tl = new TimelineMax({repeat:0})
 
     // function to create question and attach hover
     function createQuestion(questionObj) {
@@ -87,10 +95,10 @@ function createStraight() {
 
         function hoverEventHandler(id, textToShow, toShow) {
             // grab reference
-            const temp_peek_text = document.querySelector('.peek-text');
 
             // bold or unbold the text
             let className = "question-text-".concat(id);
+            let el = document.querySelector('.peek-text');
             // console.log('className: ', className);
             if(toShow) {
 
@@ -100,12 +108,37 @@ function createStraight() {
                         element.style.fontWeight = "normal";
                     }
                 );
-
+                 
                 document.getElementsByClassName(className)[0].style.fontWeight = "bold";
+            
+                
+                // display the text
+                el.textContent = textToShow;
+                
+                if(tl.isActive()) {
+                    // we need to add the tween and set a callback for the text
+                    // console.log(tl.getActive(true, true, false));
+                    tl.add(TweenLite.fromTo(el, .75, { x: -100, opacity: 0, ease:Linear.ease}, {x: 0, opacity: 1}));
+                } else {
+                    tl.fromTo(el, .75, { x: -100, opacity: 0, ease: Linear.ease }, { x: 0, opacity: 1 })
+                }
+            } else {
+                Array.from(document.getElementsByClassName("question-text")).forEach(
+                    function(element, index, array) {
+                        // do stuff
+                        element.style.fontWeight = "normal";
+                    }
+                );
+                // push peek text to the right and fade out
+                if(tl.isActive()) {
+                    tl.add(TweenLite.fromTo(el, .25, {x: 0, opacity: 1, ease: Linear.ease }, { opacity: 0, x: 100}));
+                    // tl.add( () => { el.textContent = textToShow }, .75)
+                } else {
+                    tl.fromTo(el, .25, {x: 0, opacity: 1, ease: Linear.ease }, { opacity: 0, x: 100});
+                }
             }
             
-            // display the text
-            document.querySelector('.peek-text').textContent = textToShow;
+            
         }
 
         return question;
@@ -124,10 +157,46 @@ function createStraight() {
     straight.appendChild(peekText);
 
     // default the Who to display
-    peekText.textContent = questions[0].text;
+    // peekText.textContent = questions[0].text;
     
+    // add the button stuff
+    /*
+        <div class='see-more'>
+            <span>Read More</span>
+            <div 'point-down-container'>
+                <img src='point-down-img'/>
+            </div>
+        </div>
+    */
+   const seeMore = document.createElement('div');
+   seeMore.classList.add('see-more');
+   
+   const readMore = document.createElement('span');
+   readMore.textContent = "Read More";
+   seeMore.appendChild(readMore);
 
-    // TODO: add divider
+    const pointDownDiv = document.createElement('div');
+    pointDownDiv.classList.add('point-down-container');
+
+    const pointDownImg = document.createElement('img');
+    pointDownImg.src = './img/arrow_point_down.png';
+
+    pointDownDiv.appendChild(pointDownImg);
+    seeMore.appendChild(pointDownDiv);
+
+    let tween = TweenMax.to(pointDownDiv, 0.4, {y:"+=10", yoyo:true, repeat:3});
+    tween.pause();
+    seeMore.addEventListener('mouseenter', () => {
+        tween.resume();
+        // console.log(tween);
+        if(!tween.isActive()) {
+            tween = TweenMax.to(pointDownDiv, 0.4, {y:"+=10", yoyo:true, repeat:3});
+        }
+    })
+
+
+
+    straight.appendChild(seeMore);
 
     return straight;
 }

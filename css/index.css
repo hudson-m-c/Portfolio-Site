@@ -137,6 +137,9 @@ html,
 body {
   font-family: 'Roboto', sans-serif;
 }
+body {
+  overflow-y: hidden;
+}
 h1,
 h2,
 h3,
@@ -192,7 +195,8 @@ img {
         </div>
 */
 .straight-container {
-  background-color: green;
+  position: relative;
+  bottom: 600px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -223,6 +227,30 @@ img {
 .straight-container .peek-text {
   font-size: 30px;
   height: 40px;
+}
+.straight-container .see-more {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 15px;
+  width: 150px;
+  height: 50px;
+  opacity: 0.6;
+  background-color: #FFFFFF;
+  margin-top: 50px;
+}
+.straight-container .see-more span {
+  font-size: 15px;
+}
+.straight-container .see-more div {
+  width: 30px;
+}
+.straight-container .see-more div img {
+  width: 100%;
+  height: 100%;
+}
+.see-more:hover {
+  opacity: 0.9;
 }
 /*
         skeleton:
@@ -317,6 +345,10 @@ img {
 .list ul li {
   padding-top: 10px;
   font-size: 13px;
+}
+#particles-js {
+  background: #add8e6;
+  height: 100%;
 }
 /*
         skeleton: Header
