@@ -2,9 +2,28 @@ const straight = createStraight();
 
 document.querySelector('.container').appendChild( straight );
 
-console.log(document.getElementsByClassName('question-text-Who')[0]);
+document.querySelector('.question-text-Who').style.fontWeight = 'bold';
+document.querySelector('.peek-text').textContent = 'Hudson Chamberlain';
 
 function createStraight() {
+
+    /*
+        skeleton: Straight
+
+        <div class='straight-container'>
+            <h2 class='straight-header'>Straight to the point...</h2>
+            <div class='question-container'>
+                <div class='question-text question-text-Who'>
+                    Who?
+                </div>
+                <div class='question-text question-text-What'>
+                    What?
+                </div>
+            </div>
+            <p class='peek-text'>**Text to display**</p>
+        </div>
+    */
+
     // this function will return the html element for straight to the point section
     const straight = document.createElement('div');
     straight.classList.add('straight-container');
@@ -64,7 +83,7 @@ function createStraight() {
         question.addEventListener('mouseenter', () => hoverEventHandler(id, questionObj.text, true) );
 
         // set mouseleave
-        question.addEventListener('mouseleave', () => hoverEventHandler(id, "", false));
+        question.addEventListener('mouseleave', () => hoverEventHandler(id, questionObj.text, false));
 
         function hoverEventHandler(id, textToShow, toShow) {
             // grab reference
@@ -74,28 +93,15 @@ function createStraight() {
             let className = "question-text-".concat(id);
             // console.log('className: ', className);
             if(toShow) {
+
+                Array.from(document.getElementsByClassName("question-text")).forEach(
+                    function(element, index, array) {
+                        // do stuff
+                        element.style.fontWeight = "normal";
+                    }
+                );
+
                 document.getElementsByClassName(className)[0].style.fontWeight = "bold";
-            } else {
-                console.log('setting text to invisible');
-                document.getElementsByClassName(className)[0].style.fontWeight = "normal";
-            }
-            
-            if(temp_peek_text.classList.contains('invisible')) {
-                // if we aren't visible
-                if(toShow) {
-                    // but want to be, toggle
-                    temp_peek_text.classList.toggle('invisible');
-                } else {
-                    // but we dont want to be, do nothing
-                }   
-            } else {
-                // we are visible
-                if(!toShow) {
-                    // but don't want to be
-                    temp_peek_text.classList.toggle('invisible');
-                } else {
-                    // we want to be, do nothing
-                }
             }
             
             // display the text
@@ -111,14 +117,15 @@ function createStraight() {
         questionContainer.appendChild( createQuestion(curr) );
     });
 
-    // default the Who to display
-    peekText.textContent = questions[0].text;
-
     // append the questionContainer
     straight.appendChild(questionContainer);
 
     // append the peek text
     straight.appendChild(peekText);
+
+    // default the Who to display
+    peekText.textContent = questions[0].text;
+    
 
     // TODO: add divider
 

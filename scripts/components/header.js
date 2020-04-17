@@ -2,6 +2,19 @@ document.querySelector('.container').appendChild( createHeader() );
 
 function createHeader() {
 
+    /*
+        skeleton: Header
+
+        <header className='header'>
+            <h2 classList='name'>Hudson Chamberlain</h2>
+            <div class='link-container>
+                <div class='link-Home'>Home</div>
+                <div class='link-Projects>Projects</div>
+                <div class='link-Articles'>Articles</div>
+            </div>
+        </header>
+    */
+
     // create the header
     const header = document.createElement('header');
     header.classList.add('header');

@@ -144,14 +144,121 @@ h4,
 h5 {
   font-family: 'Indie Flower', cursive;
 }
-
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3.2rem;
+  padding-bottom: 10px;
+}
+h4 {
+  font-size: 2.5rem;
+  padding-bottom: 10px;
+}
+p {
+  line-height: 1.5;
+  font-size: 1.6rem;
+  padding-bottom: 10px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
 .container {
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
 }
+@media (max-width: 750px) {
+  .container {
+    max-width: auto;
+    padding: 20px;
+  }
+}
+/*
+        skeleton: Straight
 
+        <div class='straight-container'>
+            <h2 class='straight-header'>Straight to the point...</h2>
+            <div class='question-container'>
+                <div class='question-text question-text-Who'>
+                    Who?
+                </div>
+                <div class='question-text question-text-What'>
+                    What?
+                </div>
+            </div>
+            <p class='peek-text'>**Text to display**</p>
+        </div>
+*/
+.straight-container {
+  background-color: green;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.straight-container h2 {
+  font-size: 25px;
+}
+.straight-container .question-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+.straight-container .question-container .question-text {
+  font-size: 15px;
+  height: 50px;
+  width: 60px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+.straight-container .peek-text {
+  font-size: 30px;
+  height: 40px;
+}
+/*
+        skeleton: Header
 
-.invisible {
-  display: none; 
+        <header className='header'>
+            <h2 classList='name'>Hudson Chamberlain</h2>
+            <div class='link-container>
+                <div class='link-Home'>Home</div>
+                <div class='link-Projects>Projects</div>
+                <div class='link-Articles'>Articles</div>
+            </div>
+        </header>
+    */
+header {
+  background-color: orange;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+header .link-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  margin-right: 10px;
+}
+header h2 {
+  font-size: 20px;
+  margin-left: 10px;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer p {
+  font-size: 1rem;
 }

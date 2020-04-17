@@ -1,37 +1,31 @@
-// <header>
-//     <!-- have name here -->
-//     <div class="logo">
-//         <a href="https://github.com/hudson-m-c" target="_blank"> 
-//         <img src="img/github-logo.png" alt="email logo"/>
-//         </a>
-//     </div>
-//     <div>
-//         <h1>Hudson's Portfolio</h1>
-//         <h3>Full-Stack Affecianado</h3>
-//     </div>
-//     <div class="logo">
-//         <a href="mailto:hudson.m.chamberlain@gmail.com">
-//             <img src="img/email-logo.jpg" alt="github logo"/>
-//         </a>
-//     </div>
-// </header>
+/*
+        skeleton: Header
+
+        <header className='header'>
+            <h2 classList='name'>Hudson Chamberlain</h2>
+            <div class='link-container>
+                <div class='link-Home'>Home</div>
+                <div class='link-Projects>Projects</div>
+                <div class='link-Articles'>Articles</div>
+            </div>
+        </header>
+    */
 
 header {
-    .flex-container(space-evenly, center);
-    height: 200px;
+    // border: 2px red solid;
+    background-color: orange;
+    .flex-container(space-between, center);
+    height: 50px;
 
-    .header-middle {
-        .flex-container(center, center);
-        flex-direction: column;
-
-        h3 {
-            padding-top: 5%;
-            font-size: 2rem;
-        }
+    .link-container {
+        .flex-container(space-between, center);
+        width: 30%;
+        margin-right: 10px;
     }
 
-    .logo {
-        width: 8%;
+    h2 {
+        font-size: 20px;
+        margin-left: 10px;
     }
 }
 

@@ -1,0 +1,51 @@
+/*
+        skeleton: Straight
+
+        <div class='straight-container'>
+            <h2 class='straight-header'>Straight to the point...</h2>
+            <div class='question-container'>
+                <div class='question-text question-text-Who'>
+                    Who?
+                </div>
+                <div class='question-text question-text-What'>
+                    What?
+                </div>
+            </div>
+            <p class='peek-text'>**Text to display**</p>
+        </div>
+*/
+
+.straight-container {
+    background-color: green;
+    .flex-container(space-evenly, center);
+    flex-direction: column;
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    h2 {
+        font-size: 25px;
+    }
+
+    .question-container {
+        // border: 2px black solid;
+        .flex-container(space-evenly, center);
+        width: 80%;
+        margin-top: 5%;
+        margin-bottom: 2%;
+
+        .question-text {
+            // border: 2px red solid;
+            font-size: 15px;
+            height: 50px;
+            width: 60px;
+            .flex-container(space-evenly, center);
+            text-align: center;
+        }
+    }
+
+    .peek-text {
+        font-size: 30px;
+        height: 40px;
+    }
+}
