@@ -118,9 +118,9 @@ function createStraight() {
                 if(tl.isActive()) {
                     // we need to add the tween and set a callback for the text
                     // console.log(tl.getActive(true, true, false));
-                    tl.add(TweenLite.fromTo(el, .75, { x: -100, opacity: 0, ease:Linear.ease}, {x: 0, opacity: 1}));
+                    tl.add(TweenLite.fromTo(el, .25, { opacity: 0, ease:Linear.ease}, {opacity: 1}));
                 } else {
-                    tl.fromTo(el, .75, { x: -100, opacity: 0, ease: Linear.ease }, { x: 0, opacity: 1 })
+                    tl.fromTo(el, .25, {opacity: 0, ease: Linear.ease }, {opacity: 1 })
                 }
             } else {
                 Array.from(document.getElementsByClassName("question-text")).forEach(
@@ -131,10 +131,10 @@ function createStraight() {
                 );
                 // push peek text to the right and fade out
                 if(tl.isActive()) {
-                    tl.add(TweenLite.fromTo(el, .25, {x: 0, opacity: 1, ease: Linear.ease }, { opacity: 0, x: 100}));
+                    tl.add(TweenLite.fromTo(el, .25, {opacity: 1, ease: Linear.ease }, { opacity: 0}));
                     // tl.add( () => { el.textContent = textToShow }, .75)
                 } else {
-                    tl.fromTo(el, .25, {x: 0, opacity: 1, ease: Linear.ease }, { opacity: 0, x: 100});
+                    tl.fromTo(el, .25, {opacity: 1, ease: Linear.ease }, { opacity: 0});
                 }
             }
             
