@@ -137,9 +137,6 @@ html,
 body {
   font-family: 'Roboto', sans-serif;
 }
-body {
-  overflow-y: hidden;
-}
 h1,
 h2,
 h3,
@@ -166,17 +163,6 @@ p {
 img {
   max-width: 100%;
   height: auto;
-}
-.container {
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-}
-@media (max-width: 750px) {
-  .container {
-    max-width: auto;
-    padding: 20px;
-  }
 }
 /*
         skeleton: Straight
@@ -271,13 +257,15 @@ img {
         </div>
 
 */
+.container {
+  height: 600px;
+}
 .main-questions-container {
   background-color: orange;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  height: 100%;
   padding-top: 10px;
 }
 .main-questions-container .main-question {
@@ -348,7 +336,7 @@ img {
 }
 #particles-js {
   background: #add8e6;
-  height: 100%;
+  height: 101vh;
 }
 /*
         skeleton: Header
@@ -362,8 +350,11 @@ img {
             </div>
         </header>
     */
-header {
+.header-container {
   background-color: orange;
+}
+header {
+  background-color: blue;
   display: flex;
   justify-content: space-between;
   align-items: center;

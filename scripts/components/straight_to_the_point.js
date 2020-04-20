@@ -197,8 +197,8 @@ function createStraight() {
     seeMore.addEventListener('click', () => {
         // this is the clickhandler
         console.log('seeMore clicked');
-        // const el = document.querySelector('#particles-js');
-        // TweenLite.to(el,2,{minHeight:0,height:0});
+        const el = document.querySelector('.container');
+        el.scrollIntoView({behavior: "smooth"});
     })
 
 
