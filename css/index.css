@@ -167,54 +167,39 @@ img {
 /*
         skeleton: Straight
 
-        <div class='straight-container'>
-            <h2 class='straight-header'>Straight to the point...</h2>
-            <div class='question-container'>
-                <div class='question-text question-text-Who'>
-                    Who?
-                </div>
-                <div class='question-text question-text-What'>
-                    What?
+        <div class='simple-straight-container'>
+            <p>Hi, my name is <span>Hudson Chamberlain</span></p>
+            <p>and I am <span ></span>.</p>
+
+            <div class='find-out-more'>
+                <span>Find out more</span>
+                <div class='img-container'>
+                    <img src='img src' />
                 </div>
             </div>
-            <p class='peek-text'>**Text to display**</p>
         </div>
 */
-.straight-container {
+.simple-straight-container {
   position: relative;
-  bottom: 90vh;
+  bottom: 80vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
   padding-top: 50px;
   padding-bottom: 50px;
+  font-family: "Fira Sans";
 }
-.straight-container h2 {
-  font-size: 25px;
+.simple-straight-container span.text {
+  font-weight: bold;
+  color: purple;
 }
-.straight-container .question-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 90%;
-  margin-top: 5%;
-  margin-bottom: 2%;
+.simple-straight-container p {
+  font-size: 20px;
 }
-.straight-container .question-container .question-text {
-  font-size: 15px;
-  height: 50px;
-  width: 60px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  text-align: center;
-}
-.straight-container .peek-text {
-  font-size: 30px;
-  height: 40px;
-}
-.straight-container .see-more {
+.simple-straight-container .find-out-more {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -225,17 +210,17 @@ img {
   background-color: #FFFFFF;
   margin-top: 50px;
 }
-.straight-container .see-more span {
+.simple-straight-container .find-out-more span {
   font-size: 15px;
 }
-.straight-container .see-more div {
+.simple-straight-container .find-out-more div {
   width: 30px;
 }
-.straight-container .see-more div img {
+.simple-straight-container .find-out-more div img {
   width: 100%;
   height: 100%;
 }
-.see-more:hover {
+.find-out-more:hover {
   opacity: 0.9;
 }
 /*
@@ -352,6 +337,10 @@ img {
     */
 .header-container {
   background-color: orange;
+}
+.sticky {
+  position: sticky;
+  top: 0;
 }
 header {
   background-color: blue;

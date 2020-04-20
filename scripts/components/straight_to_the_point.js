@@ -1,4 +1,4 @@
-const straight = createStraight();
+const straight = createSimpleStraight();
 
 document.querySelector('#particles-js').appendChild( straight );
 
@@ -206,4 +206,83 @@ function createStraight() {
     straight.appendChild(seeMore);
 
     return straight;
+}
+
+function createSimpleStraight() {
+    /*
+        skeleton: Simple Straight
+
+        <div class='simple-straight-container'>
+            <p>Hi, my name is <span>Hudson Chamberlain</span></p>
+            <p>and I am <span ></span>.</p>
+
+            <div class='find-out-more'>
+                <span>Find out more</span>
+                <div class='img-container'>
+                    <img src='img src' />
+                </div>
+            </div>
+        </div>
+    */
+
+    // overall container
+    const simpleStraight = document.createElement('div');
+    simpleStraight.classList.add('simple-straight-container');
+
+    const firstP = document.createElement('p');
+    firstP.textContent = "Hi, my name is ";
+    const firstS = document.createElement('span');
+    firstS.textContent = "Hudson Chamberlain";
+    firstS.classList.add('text');
+    firstP.appendChild(firstS);
+    simpleStraight.appendChild(firstP);
+    
+    const secondP = document.createElement('p');
+    secondP.textContent = 'and I am a ';
+    const secondS = document.createElement('span');
+    secondS.textContent = 'Full-Stack developer';
+    secondS.classList.add('text');
+    const thirdS = document.createElement('span');
+    thirdS.textContent = '.';
+    secondP.appendChild(secondS);
+    secondP.appendChild(thirdS);
+    simpleStraight.appendChild(secondP);
+
+
+    // create the button
+    const findOutMore = document.createElement('div');
+    findOutMore.classList.add('find-out-more');
+   
+   const readMore = document.createElement('span');
+   readMore.textContent = "Find out more";
+   findOutMore.appendChild(readMore);
+
+    const pointDownDiv = document.createElement('div');
+    pointDownDiv.classList.add('point-down-container');
+
+    const pointDownImg = document.createElement('img');
+    pointDownImg.src = './img/arrow_point_down.png';
+    pointDownDiv.appendChild(pointDownImg);
+
+    findOutMore.appendChild(pointDownDiv);
+    simpleStraight.appendChild(findOutMore);
+
+    let tween = TweenMax.to(pointDownDiv, 0.4, {y:"+=10", yoyo:true, repeat:3});
+    tween.pause();
+    findOutMore.addEventListener('mouseenter', () => {
+        tween.resume();
+        // console.log(tween);
+        if(!tween.isActive()) {
+            tween = TweenMax.to(pointDownDiv, 0.4, {y:"+=10", yoyo:true, repeat:3});
+        }
+    })
+
+    findOutMore.addEventListener('click', () => {
+        // this is the clickhandler
+        console.log('findOutMore clicked');
+        const el = document.querySelector('.container');
+        el.scrollIntoView({behavior: "smooth"});
+    })
+
+    return simpleStraight;
 }

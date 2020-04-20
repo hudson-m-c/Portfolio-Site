@@ -20,16 +20,16 @@ const observer = new IntersectionObserver((entry, observer) => {
         // populate the header
         // pull the header out
         tween.play();
-        document.querySelector('.header-container').classList.add('sticky');
+        document.querySelector('header').classList.add('sticky');
     } else {
         // remove the header
         // put the header back in
         tween.reverse();
-        document.querySelector('.header-container').classList.remove('sticky');
+        document.querySelector('header').classList.remove('sticky');
     }
 }, options);
 
-observer.observe(document.getElementById('container'));
+observer.observe(document.querySelector('div.container'));
 
 function createHeader() {
 
