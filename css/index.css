@@ -196,7 +196,7 @@ img {
 */
 .straight-container {
   position: relative;
-  bottom: 600px;
+  bottom: 90vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;

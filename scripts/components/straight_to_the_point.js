@@ -1,6 +1,6 @@
 const straight = createStraight();
 
-document.querySelector('.container').appendChild( straight );
+document.querySelector('#particles-js').appendChild( straight );
 
 // document.querySelector('.question-text-Who').style.fontWeight = 'bold';
 // document.querySelector('.peek-text').textContent = 'Hudson Chamberlain';
@@ -192,6 +192,13 @@ function createStraight() {
         if(!tween.isActive()) {
             tween = TweenMax.to(pointDownDiv, 0.4, {y:"+=10", yoyo:true, repeat:3});
         }
+    })
+
+    seeMore.addEventListener('click', () => {
+        // this is the clickhandler
+        console.log('seeMore clicked');
+        // const el = document.querySelector('#particles-js');
+        // TweenLite.to(el,2,{minHeight:0,height:0});
     })
 
 
