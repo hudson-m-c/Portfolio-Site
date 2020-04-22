@@ -1,9 +1,37 @@
-const straight = createSimpleStraight();
+modifyButton();
 
-document.querySelector('#particles-js').appendChild( straight );
+// const straight = createSimpleStraight();
+
+// document.querySelector('#particles-js').appendChild( straight );
 
 // document.querySelector('.question-text-Who').style.fontWeight = 'bold';
 // document.querySelector('.peek-text').textContent = 'Hudson Chamberlain';
+
+function modifyButton() {
+    // create the button
+    const findOutMore = document.querySelector('.find-out-more');
+    console.log(findOutMore);
+
+    const pointDownDiv = document.querySelector('.point-down-container');
+    console.log(pointDownDiv);
+
+    let tween = TweenMax.to(pointDownDiv, 0.4, {y:"+=10", yoyo:true, repeat:3});
+    tween.pause();
+    findOutMore.addEventListener('mouseenter', () => {
+        tween.resume();
+        // console.log(tween);
+        if(!tween.isActive()) {
+            tween = TweenMax.to(pointDownDiv, 0.4, {y:"+=10", yoyo:true, repeat:3});
+        }
+    })
+
+    findOutMore.addEventListener('click', () => {
+        // this is the clickhandler
+        console.log('findOutMore clicked');
+        const el = document.querySelector('.container');
+        el.scrollIntoView({behavior: "smooth"});
+    })
+}
 
 function createStraight() {
 
@@ -249,40 +277,7 @@ function createSimpleStraight() {
     simpleStraight.appendChild(secondP);
 
 
-    // create the button
-    const findOutMore = document.createElement('div');
-    findOutMore.classList.add('find-out-more');
-   
-   const readMore = document.createElement('span');
-   readMore.textContent = "Find out more";
-   findOutMore.appendChild(readMore);
-
-    const pointDownDiv = document.createElement('div');
-    pointDownDiv.classList.add('point-down-container');
-
-    const pointDownImg = document.createElement('img');
-    pointDownImg.src = './img/arrow_point_down.png';
-    pointDownDiv.appendChild(pointDownImg);
-
-    findOutMore.appendChild(pointDownDiv);
-    simpleStraight.appendChild(findOutMore);
-
-    let tween = TweenMax.to(pointDownDiv, 0.4, {y:"+=10", yoyo:true, repeat:3});
-    tween.pause();
-    findOutMore.addEventListener('mouseenter', () => {
-        tween.resume();
-        // console.log(tween);
-        if(!tween.isActive()) {
-            tween = TweenMax.to(pointDownDiv, 0.4, {y:"+=10", yoyo:true, repeat:3});
-        }
-    })
-
-    findOutMore.addEventListener('click', () => {
-        // this is the clickhandler
-        console.log('findOutMore clicked');
-        const el = document.querySelector('.container');
-        el.scrollIntoView({behavior: "smooth"});
-    })
+    
 
     return simpleStraight;
 }

@@ -1,4 +1,5 @@
-document.querySelector('.container').appendChild( createHeader() );
+const container = document.querySelector('.container');
+container.insertBefore( createHeader(), container.childNodes[0]);
 
 let options = {
     root: null, // relative to document viewport 
@@ -6,10 +7,10 @@ let options = {
     threshold: 0.1 // visible amount of item shown in relation to root
   };
 
-  var tween = TweenLite.from( document.querySelector('header'), 1, {
-    width: 0,
+  var tween = TweenLite.to( document.querySelector('header'), 1, {
+    width: 100,
     paused: true,
-    reversed: true,
+    reversed: false,
     ease: Expo.ease
     });
 const observer = new IntersectionObserver((entry, observer) => {
@@ -19,12 +20,12 @@ const observer = new IntersectionObserver((entry, observer) => {
     if(entry[0].isIntersecting) {
         // populate the header
         // pull the header out
-        tween.play();
+        tween.reverse();
         document.querySelector('header').classList.add('sticky');
     } else {
         // remove the header
         // put the header back in
-        tween.reverse();
+        tween.play();
         document.querySelector('header').classList.remove('sticky');
     }
 }, options);
