@@ -4,11 +4,11 @@ container.insertBefore( createHeader(), container.childNodes[0]);
 let options = {
     root: null, // relative to document viewport 
     rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
-    threshold: 0.1 // visible amount of item shown in relation to root
+    threshold: 0.01 // visible amount of item shown in relation to root
   };
 
   var tween = TweenLite.to( document.querySelector('header'), 1, {
-    width: 100,
+    width: 300,
     paused: true,
     reversed: false,
     ease: Expo.ease
@@ -21,12 +21,10 @@ const observer = new IntersectionObserver((entry, observer) => {
         // populate the header
         // pull the header out
         tween.reverse();
-        document.querySelector('header').classList.add('sticky');
     } else {
         // remove the header
         // put the header back in
         tween.play();
-        document.querySelector('header').classList.remove('sticky');
     }
 }, options);
 
@@ -59,7 +57,7 @@ function createHeader() {
     // create the name
     const name = document.createElement('h2');
     name.classList.add('name');
-    name.textContent = "Hudson Chamberlain";
+    name.textContent = "H.C.";
     header.appendChild(name);
     
     // create the links

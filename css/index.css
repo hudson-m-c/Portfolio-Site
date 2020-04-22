@@ -195,10 +195,16 @@ img {
 }
 .simple-straight-container span.text {
   font-weight: bold;
-  color: purple;
+  color: black;
+  background-color: white;
+  margin-right: 5px;
+  border-radius: 10px;
+  padding: 0 10px;
+  opacity: 0.6;
 }
 .simple-straight-container p {
   font-size: 20px;
+  color: white;
 }
 .simple-straight-container .find-out-more {
   display: flex;
@@ -225,7 +231,7 @@ img {
   opacity: 0.9;
 }
 #particles-js {
-  background: #add8e6;
+  background: #2A3640;
 }
 .container {
   height: 1000px;
@@ -243,25 +249,27 @@ img {
         </header>
     */
 .header-container {
-  background-color: orange;
+  background-color: #2A3640;
 }
 header {
-  background-color: blue;
+  background-color: #090A0D;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 50px;
+  color: white;
 }
 header .link-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   width: 30%;
-  margin-right: 10px;
+  padding-right: 10px;
 }
 header h2 {
-  font-size: 20px;
-  margin-left: 10px;
+  font-size: 18px;
+  margin-left: 20px;
+  height: 20px;
 }
 /*
         Skeleton:

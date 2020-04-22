@@ -4,13 +4,13 @@
       "value":200
     },
     "color":{
-      "value":"#fff"
+      "value":"#BFA169"
     },
     "shape":{
       "type":"circle",
       "stroke":{
         "width":1,
-        "color":"#ccc"
+        "color":"#536473"
       },
       "image":{
         "src":"http://www.iconsdb.com/icons/preview/white/contacts-xxl.png"
@@ -35,7 +35,7 @@
     "line_linked":{
       "enable": true,
       "distance": 120,
-      "color":"#fff",
+      "color":"#BFA169",
       "width":2
     },
     "move":{
