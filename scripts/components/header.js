@@ -1,5 +1,6 @@
-const container = document.querySelector('.container');
-container.insertBefore( createHeader(), container.childNodes[0]);
+const container = document.querySelector('body');
+console.log(container);
+container.insertBefore( createHeader(), container.childNodes[2]);
 
 let options = {
     root: null, // relative to document viewport 
@@ -63,12 +64,12 @@ function createHeader() {
     // create the links
 
     // setup and return link
-    function createLink(name) {
+    function createLink(name, text) {
         let className = `link-${name}`;
         
         const link = document.createElement('div');
         link.classList.add(className);
-        link.textContent = name;
+        link.textContent = text;
         link.addEventListener('click', () => console.log(`clicked link: ${name}`));
         
         return link;
@@ -79,9 +80,10 @@ function createHeader() {
     linkContainer.classList.add('link-container');
 
     // add links to link container
-    let links = ["Home", "Projects", "Articles"];
-    links.forEach( link => {
-        linkContainer.appendChild( createLink(link) );
+    let links = ["About-Me", "Projects", "Contact"];
+    let texts = ["About Me", "Projects", "Contact"];
+    links.forEach( (link, i) => {
+        linkContainer.appendChild( createLink(link, texts[i]) );
     })
 
     // add link container to header

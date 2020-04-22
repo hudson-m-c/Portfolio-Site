@@ -28,7 +28,7 @@ function modifyButton() {
     findOutMore.addEventListener('click', () => {
         // this is the clickhandler
         console.log('findOutMore clicked');
-        const el = document.querySelector('.container');
+        const el = document.querySelector('header');
         el.scrollIntoView({behavior: "smooth"});
     })
 }
