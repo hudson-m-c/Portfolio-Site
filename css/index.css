@@ -219,6 +219,7 @@ img {
 }
 .simple-straight-container .find-out-more span {
   font-size: 15px;
+  color: black;
 }
 .simple-straight-container .find-out-more div {
   width: 30px;
@@ -352,14 +353,14 @@ header {
 }
 header .link-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  width: 30%;
-  padding-right: 10px;
+  width: 20%;
+  margin-right: 30px;
 }
 header h2 {
   font-size: 18px;
-  margin-left: 20px;
+  margin-left: 30px;
   height: 20px;
 }
 /*
