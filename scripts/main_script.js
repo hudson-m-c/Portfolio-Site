@@ -227,33 +227,45 @@ function createAboutMe() {
     desc.textContent = "I'm a software engineer based in Birmingham, AL. As a current student of Lambda's Web Development curriculumn, some of my skills are still in development. However, my Mobile and Embedded Systems skills have been molded through professional and hobby projects.";
     amc.appendChild(desc);
 
-    function createTechnology(obj) {
+    function createTechnology(id) {
         //// create main container
         const c = document.createElement('div');
-        c.classList.add('container');
-        // create header text
-        const header = document.createElement('h4');
-        header.textContent = obj.header.concat(':');
-        c.appendChild(header);
-        // create list
-        const list = document.createElement('ul');
-        obj.items.forEach( item => {
-            const listItem = document.createElement('li');
-            
-            list.appendChild(listItem);
-        })
-        c.appendChild(list);
-
+        c.classList.add('tech-container');
+        const canvas = document.createElement('canvas');
+        canvas.id = id;
+        // canvas.style.width = "1200px";
+        // canvas.style.height = height;
+        c.appendChild(canvas);
         return c;
     }
 
     //// create familiar container
     const fc = document.createElement('div');
     fc.classList.add('familiar-container');
-    const canvas = document.createElement('canvas');
-    canvas.id = 'tech-chart';
-    // add the technologies
-    fc.appendChild(canvas);
+    
+    // create buttons to display certain skills
+    function createCanvasButton(text, labels, data) {
+        const button = document.createElement('div');
+        button.classList.add('tech-button');
+        button.textContent = text;
+        button.addEventListener('mouseenter', (evt) => {
+            // bold text of the button
+            console.log('mouseenter', text);
+            Array.from(document.getElementsByClassName('tech-button')).forEach( el => el.style.fontWeight="normal");
+            evt.target.style.fontWeight = "bold";
+            modifyCanvas(labels, data);
+        })
+        return button;
+    }
+    const buttons = document.createElement('div');
+    buttons.classList.add('tech-buttons');
+    buttons.appendChild( createCanvasButton('Web', ["Javascript", "React.js", "Express", "HTML5", "CSS3"], [4,4,3,4,3]) );
+    buttons.appendChild( createCanvasButton('Mobile', ["Java", "XML"], [3,2]) );
+    buttons.appendChild( createCanvasButton('Embedded', ["C/C++"], [4]) );
+    fc.appendChild(buttons);
+
+    fc.appendChild( createTechnology('tech-chart') );
+
     amc.appendChild(fc);
 
     return amc;
@@ -304,38 +316,76 @@ const technologies = [
         ]
     }
 ]
-function modifyCanvas() {
+let techChart;
+function modifyCanvas(labels, data) {
+    console.log('modifyCanvas', labels[0])
     let ctx = document.getElementById('tech-chart').getContext('2d');
-    let techChart = new Chart(ctx, {
+    Chart.defaults.global.defaultFontColor = '#FFFFFF';
+    console.log('techChart', techChart);
+    if(techChart != null || techChart != undefined) {
+        techChart.destroy();
+    }
+    techChart = new Chart(ctx, {
         type: 'horizontalBar',
+        // scaleFontColor: "#BFA169",
         data: {
-            labels: ["Africa", "Asia", "Europe"],
+            labels,
             datasets: [
               {
-                label: "Population (millions)",
-                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
-                data: [3,1,2]
+                // fontColor: "#BFA169",
+                color: "#BFA169",
+                barThickness: 16,
+                maxBarThickness: 18,
+                backgroundColor: "#BFA169",
+                borderColor: "#BFA169",
+                data
               }
             ]
-          },
-          options: {
-            legend: { display: false },
+        },
+        options: {
+            // maintainAspectRatio: false,
+            // responsive: true,
+            hover: {mode: null},
+            tooltips: {enabled: false},
+            // hover: {mode: null},
+            defaultFontColor: "#000000",
+            legend: { 
+                display: false, 
+                labels: { 
+                    fontColor: "#BFA169" 
+                } 
+            },
             title: {
-              display: true,
-              text: 'Predicted world population (millions) in 2050'
+                display: false,
+                text: 'Level of Application',
+                fontColor: "#FFFFFF"
             },
             scales: {
+                yAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }],
                 xAxes: [{
-                    display: true,
+                    gridLines: {
+                        // zeroLineColor: "black",
+                        // zeroLineWidth: 2
+                    },
                     ticks: {
-                        beginAtZero: true   // minimum value will be 0.
+                        min: 0,
+                        max: 5,
+                        stepSize: 1,
+                        fontColor: "#FFFFFF"
                     }
                 }]
             }
-          }
+        }
     });
+    // console.log(techChart);
 }
-modifyCanvas();
+// modifyCanvas('web-chart', ["Javascript", "React.js", "Express", "HTML5", "CSS3"], [4,4,3,4,3]);
+// modifyCanvas('mobile-chart', ["Java", "XML"], [3,2]);
+// modifyCanvas('embedded-chart', ["C/C++"], [4]);
 
 
 function createProjects() {

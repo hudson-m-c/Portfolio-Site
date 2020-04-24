@@ -258,6 +258,20 @@ img {
 .about-me-container .familiar-container {
   padding: 0 25px;
 }
+.about-me-container .familiar-container .tech-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+}
+.about-me-container .familiar-container .tech-buttons .tech-button {
+  border: 3px solid orange;
+  width: 50px;
+  font-size: 14px;
+}
+.about-me-container .familiar-container .tech-container {
+  border: 2px solid red;
+}
 .about-me-container .familiar-container .familiar {
   padding: 25px 25px;
   padding-bottom: 0;
