@@ -227,11 +227,15 @@ function createAboutMe() {
     desc.textContent = "I'm a software engineer based in Birmingham, AL. As a current student of Lambda's Web Development curriculumn, some of my skills are still in development. However, my Mobile and Embedded Systems skills have been molded through professional and hobby projects.";
     amc.appendChild(desc);
 
-    function createTechnology(id, text, labels, data) {
+    function createTechnology(id, text) {
         //// create main container
         const c = document.createElement('div');
         let className = id.concat("-container");
         c.classList.add(className);
+        const headerText = document.createElement('h3');
+        headerText.textContent = text;
+        headerText.classList.add('chart-header');
+        c.appendChild(headerText);
         const canvas = document.createElement('canvas');
         canvas.id = id;
         c.appendChild(canvas);
@@ -264,9 +268,9 @@ function createAboutMe() {
     // buttons.appendChild( createCanvasButton('Embedded', ["C/C++"], [4]) );
     fc.appendChild(buttons);
 
-    fc.appendChild( createTechnology('web-tech-chart'));
-    fc.appendChild( createTechnology('mobile-tech-chart'));
-    fc.appendChild( createTechnology('embedded-tech-chart'));
+    fc.appendChild( createTechnology('web-tech-chart', 'Web'));
+    fc.appendChild( createTechnology('mobile-tech-chart', 'Mobile'));
+    fc.appendChild( createTechnology('embedded-tech-chart', 'Embedded'));
 
     amc.appendChild(fc);
 
