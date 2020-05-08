@@ -227,14 +227,13 @@ function createAboutMe() {
     desc.textContent = "I'm a software engineer based in Birmingham, AL. As a current student of Lambda's Web Development curriculumn, some of my skills are still in development. However, my Mobile and Embedded Systems skills have been molded through professional and hobby projects.";
     amc.appendChild(desc);
 
-    function createTechnology(id) {
+    function createTechnology(id, text, labels, data) {
         //// create main container
         const c = document.createElement('div');
-        c.classList.add('tech-container');
+        let className = id.concat("-container");
+        c.classList.add(className);
         const canvas = document.createElement('canvas');
         canvas.id = id;
-        // canvas.style.width = "1200px";
-        // canvas.style.height = height;
         c.appendChild(canvas);
         return c;
     }
@@ -254,39 +253,26 @@ function createAboutMe() {
             Array.from(document.getElementsByClassName('tech-button')).forEach( el => el.style.fontWeight="normal");
             evt.target.style.fontWeight = "bold";
 
-            let dims = {
-                width: "75vw",
-                height: ""
-            }
-
-            if(text === 'Web') {
-                dims.height = "500px"; 
-            } else if(text === 'Mobile') {
-                dims.height = "250px";
-            } else if(text === 'Embedded') {
-                dims.height = "150px";
-            }
-            
-
             modifyCanvas(labels, data, dims);
         })
         return button;
     }
     const buttons = document.createElement('div');
     buttons.classList.add('tech-buttons');
-    buttons.appendChild( createCanvasButton('Web', ["Javascript", "React.js", "Express", "HTML5", "CSS3"], [4,4,3,4,3]) );
-    buttons.appendChild( createCanvasButton('Mobile', ["Java", "XML"], [3,2]) );
-    buttons.appendChild( createCanvasButton('Embedded', ["C/C++"], [4]) );
+    // buttons.appendChild( createCanvasButton('Web', ["Javascript", "React.js", "Express", "HTML5", "CSS3"], [4,4,3,4,3]) );
+    // buttons.appendChild( createCanvasButton('Mobile', ["Java", "XML"], [3,2]) );
+    // buttons.appendChild( createCanvasButton('Embedded', ["C/C++"], [4]) );
     fc.appendChild(buttons);
 
-    fc.appendChild( createTechnology('tech-chart') );
+    fc.appendChild( createTechnology('web-tech-chart'));
+    fc.appendChild( createTechnology('mobile-tech-chart'));
+    fc.appendChild( createTechnology('embedded-tech-chart'));
 
     amc.appendChild(fc);
 
     return amc;
 }
 container.appendChild( createAboutMe() )
-
 const technologies = [
     {
         header: "Web",
@@ -332,22 +318,30 @@ const technologies = [
     }
 ]
 let techChart;
-function modifyCanvas(labels, data, dims) {
+modifyChart('web-tech-chart', ["Javascript", "React.js", "Express", "HTML5", "CSS3"], [4,4,3,4,3], "500px")
+modifyChart('mobile-tech-chart', ["Android", "Java", "XML"], [3,3,2], "250px");
+modifyChart('embedded-tech-chart', ["C/C++"], [4], "150px")
+
+
+function modifyChart(id, labels, data, height) {
     console.log('modifyCanvas', labels[0]);
-    let chart = document.getElementById('tech-chart');
-    let chartContainer = document.querySelector('.tech-container');
+    let chart = document.getElementById(id);
+    console.log(id, chart);
+    let selector = "." + id.concat('-container');
+    console.log('selector', selector);
+    let chartContainer = document.querySelector(selector);
     
-    console.log('chartContainer', chartContainer.style, 'dims', dims);
+    // console.log('chartContainer', chartContainer.style, 'dims', dims);
     let ctx = chart.getContext('2d');
     // chartContainer.width = dims.width;
-    // chartContainer.height = dims.height;
-    chartContainer.style.width = dims.width;
-    chartContainer.style.height = dims.height;
+    // chartContainer.height = height;
+    // chartContainer.style.width = dims.width;
+    chartContainer.style.height = height;
     Chart.defaults.global.defaultFontColor = '#FFFFFF';
     console.log('techChart', techChart);
-    if(techChart != null || techChart != undefined) {
-        techChart.destroy();
-    }
+    // if(techChart != null || techChart != undefined) {
+    //     techChart.destroy();
+    // }
     techChart = new Chart(ctx, {
         type: 'horizontalBar',
         // scaleFontColor: "#BFA169",
@@ -381,7 +375,8 @@ function modifyCanvas(labels, data, dims) {
             title: {
                 display: true,
                 text: 'Knowledge of Technology',
-                fontColor: "#FFFFFF"
+                fontColor: "#FFFFFF",
+                fontSize: "16"
             },
             scales: {
                 yAxes: [{
