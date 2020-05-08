@@ -253,7 +253,22 @@ function createAboutMe() {
             console.log('mouseenter', text);
             Array.from(document.getElementsByClassName('tech-button')).forEach( el => el.style.fontWeight="normal");
             evt.target.style.fontWeight = "bold";
-            modifyCanvas(labels, data);
+
+            let dims = {
+                width: "75vw",
+                height: ""
+            }
+
+            if(text === 'Web') {
+                dims.height = "500px"; 
+            } else if(text === 'Mobile') {
+                dims.height = "250px";
+            } else if(text === 'Embedded') {
+                dims.height = "150px";
+            }
+            
+
+            modifyCanvas(labels, data, dims);
         })
         return button;
     }
@@ -317,9 +332,17 @@ const technologies = [
     }
 ]
 let techChart;
-function modifyCanvas(labels, data) {
-    console.log('modifyCanvas', labels[0])
-    let ctx = document.getElementById('tech-chart').getContext('2d');
+function modifyCanvas(labels, data, dims) {
+    console.log('modifyCanvas', labels[0]);
+    let chart = document.getElementById('tech-chart');
+    let chartContainer = document.querySelector('.tech-container');
+    
+    console.log('chartContainer', chartContainer.style, 'dims', dims);
+    let ctx = chart.getContext('2d');
+    // chartContainer.width = dims.width;
+    // chartContainer.height = dims.height;
+    chartContainer.style.width = dims.width;
+    chartContainer.style.height = dims.height;
     Chart.defaults.global.defaultFontColor = '#FFFFFF';
     console.log('techChart', techChart);
     if(techChart != null || techChart != undefined) {
@@ -343,8 +366,8 @@ function modifyCanvas(labels, data) {
             ]
         },
         options: {
-            // maintainAspectRatio: false,
-            // responsive: true,
+            maintainAspectRatio: false,
+            responsive: true,
             hover: {mode: null},
             tooltips: {enabled: false},
             // hover: {mode: null},
@@ -356,8 +379,8 @@ function modifyCanvas(labels, data) {
                 } 
             },
             title: {
-                display: false,
-                text: 'Level of Application',
+                display: true,
+                text: 'Knowledge of Technology',
                 fontColor: "#FFFFFF"
             },
             scales: {
@@ -367,6 +390,7 @@ function modifyCanvas(labels, data) {
                     }
                 }],
                 xAxes: [{
+                    position: "top",
                     gridLines: {
                         // zeroLineColor: "black",
                         // zeroLineWidth: 2
