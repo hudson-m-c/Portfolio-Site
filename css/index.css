@@ -307,6 +307,14 @@ img {
 .web-tech-chart-container .chart-header {
   margin-top: 15px;
 }
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+#navbar {
+  overflow: hidden;
+}
 /*
     <div class='project'>
         <h3>Sample</h3>

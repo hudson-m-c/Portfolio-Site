@@ -84,6 +84,8 @@ function modifyButton() {
 }
 modifyButton();
 
+
+
 function addHeader() {
     document.querySelector('body').insertBefore( createHeader(), document.querySelector('body').childNodes[2] );
 
