@@ -261,12 +261,20 @@ function createAboutMe() {
         })
         return button;
     }
-    const buttons = document.createElement('div');
-    buttons.classList.add('tech-buttons');
+    // const buttons = document.createElement('div');
+    // buttons.classList.add('tech-buttons');
     // buttons.appendChild( createCanvasButton('Web', ["Javascript", "React.js", "Express", "HTML5", "CSS3"], [4,4,3,4,3]) );
     // buttons.appendChild( createCanvasButton('Mobile', ["Java", "XML"], [3,2]) );
     // buttons.appendChild( createCanvasButton('Embedded', ["C/C++"], [4]) );
-    fc.appendChild(buttons);
+    // fc.appendChild(buttons);
+
+    const titleContainer = document.createElement('div');
+    titleContainer.classList.add('title-container');
+    const title = document.createElement('h2');
+    title.textContent = "Knowledge of Technology";
+    title.classList.add('chart-title');
+    titleContainer.appendChild(title);
+    fc.appendChild(titleContainer);
 
     fc.appendChild( createTechnology('web-tech-chart', 'Web'));
     fc.appendChild( createTechnology('mobile-tech-chart', 'Mobile'));
@@ -322,9 +330,9 @@ const technologies = [
     }
 ]
 let techChart;
-modifyChart('web-tech-chart', ["Javascript", "React.js", "Express", "HTML5", "CSS3"], [4,4,3,4,3], "500px")
-modifyChart('mobile-tech-chart', ["Android", "Java", "XML"], [3,3,2], "250px");
-modifyChart('embedded-tech-chart', ["C/C++"], [4], "150px")
+modifyChart('web-tech-chart', ["Javascript", "React.js", "Express", "HTML5", "CSS3"], [4,4,3,4,3], "300px")
+modifyChart('mobile-tech-chart', ["Android", "Java", "XML"], [3,3,2], "150px");
+modifyChart('embedded-tech-chart', ["C/C++"], [4], "75px")
 
 
 function modifyChart(id, labels, data, height) {
@@ -377,7 +385,7 @@ function modifyChart(id, labels, data, height) {
                 } 
             },
             title: {
-                display: true,
+                display: false,
                 text: 'Knowledge of Technology',
                 fontColor: "#FFFFFF",
                 fontSize: "16"

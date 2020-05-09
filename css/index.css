@@ -289,6 +289,24 @@ img {
 .about-me-container .familiar-container .familiar ul li span {
   font-size: 14px;
 }
+.chart-header {
+  color: #BFA169;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 0;
+}
+.title-container {
+  display: flex;
+  justify-content: center;
+}
+.container .main-container .chart-title {
+  text-decoration: none;
+  font-size: 2.5rem;
+  font-style: italic;
+}
+.web-tech-chart-container .chart-header {
+  margin-top: 15px;
+}
 /*
     <div class='project'>
         <h3>Sample</h3>
