@@ -162,6 +162,8 @@ function addHeader() {
                     el = document.querySelector('.about-me-container');
                 } else if(name === "Projects") {
                     el = document.querySelector('.projects-container');
+                } else if(name === 'Contact') {
+                    el = document.querySelector('.contact-container');
                 }
 
                 if(el != undefined) {
@@ -616,3 +618,104 @@ function createProjects(projs) {
     return projectsContainer;
 }
 container.appendChild( createProjects(projects) );
+
+let emailInfo = {
+    email: "",
+    company_name: "",
+    interest: ""
+}
+
+function createContactMe() {
+    /*
+
+        <div class='contact-container main-container'>
+            <h2>Contact Me</h2>
+            <p>Fill out this form and we can get in touch!</p>
+            <form onSubmit={submitHandler}>
+                <input placeholder="Email" />
+                <input placeholder="Company Name" />
+                <input placeholder="Interested for..." />
+                <button type="submit">Send it!</button>
+            </form>
+        </div>
+
+    */
+
+    let stillDev = true;
+
+    const contactContainer = document.createElement('div');
+    contactContainer.classList.add('contact-container', 'main-container');
+
+    const header = document.createElement('h2');
+    header.textContent = "Contact";
+    contactContainer.appendChild(header);
+    
+    const touch = document.createElement('p');
+    if(stillDev) {
+        touch.textContent = "Email me at hudson.m.chamberlain@gmail.com for business inquiries!";
+    } else {
+        touch.textContent = "Fill out this form and we can get in touch!";
+    }
+    
+    contactContainer.appendChild(touch);
+
+    if(!stillDev) {
+
+        const form = document.createElement('form');
+        form.onsubmit = (evt) => {
+            evt.preventDefault();
+            console.log('onsubmit', emailInfo);
+
+            Email.send({
+                SecureToken : "<your generated token>",
+                To : 'recipient@example.com',
+                From : "sender@example.com",
+                Subject : "Test Email",
+                Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+                }
+            ).then(
+                message => alert("mail sent successfully")
+            );
+        }
+
+        function handleChange(evt) {
+            emailInfo = {
+                ...emailInfo,
+                [evt.target.name]: evt.target.value
+            }
+        }
+
+        const emailInput = document.createElement('input');
+        emailInput.placeholder = "Email";
+        emailInput.name="email";
+        emailInput.value = emailInfo.email;
+        emailInput.onchange = (evt) => handleChange(evt);
+        form.appendChild(emailInput);
+
+        const companyInput = document.createElement('input');
+        companyInput.placeholder = "Company Name";
+        companyInput.name = "company_name";
+        companyInput.value = emailInfo.company_name;
+        companyInput.onchange = (evt) => handleChange(evt);
+        form.appendChild(companyInput);
+
+        const interestInput = document.createElement('input');
+        interestInput.placeholder = "Interested for...";
+        interestInput.name = "interest";
+        interestInput.value = emailInfo.interest;
+        interestInput.onchange = (evt) => handleChange(evt);
+        form.appendChild(interestInput);
+
+        const sendButton = document.createElement('button');
+        sendButton.type = 'submit';
+        sendButton.style.width = "100px";
+        sendButton.style.height = "50px";
+        sendButton.textContent = "Send it!";
+        form.appendChild(sendButton);
+
+        contactContainer.appendChild(form);
+    }
+
+    return contactContainer;
+}
+container.appendChild( createContactMe() );

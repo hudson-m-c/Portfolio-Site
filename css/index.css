@@ -369,6 +369,24 @@ img {
   font-size: 1.6rem;
   margin-bottom: 10px;
 }
+.contact-container form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border: 4px #BFA169 solid;
+  border-radius: 10px;
+  width: 40%;
+  margin-left: 25px;
+}
+.contact-container form input {
+  width: 300px;
+  margin-top: 20px;
+}
+.contact-container form button {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
 /*
         skeleton: Header
 
