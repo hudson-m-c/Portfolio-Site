@@ -307,58 +307,67 @@ img {
 .web-tech-chart-container .chart-header {
   margin-top: 15px;
 }
-/*
-    <div class='project'>
-        <h3>Sample</h3>
-        <p>This is a sample project description.</p>
-        <ul class='project-skills-container'>
-            <li>Javascript - React, Material-UI, Context API</li>
-            <li>HTML5</li>
-            <li>CSS3</li>
-        </ul>
+/* 
+    <div class='projects-container main-container'>
+        <h2>Projects</h2>
+        <p>Below are my hobby projects. Each one has a description and a list of technologies used when developing.</p>
+        <div class='all-projects-container'>
+            <div class='project'>
+                <div class='project-img-container'>
+                    <img src={project.imgsrc} />
+                </div>
+                <div class='project-info-container'>
+                    <h3>{project.title}</h3>
+                    <p>{project.desc}</h3>
+                    <h4>Technologies</h4>
+                    <ul>
+                        <li>{project.technologies[i]}</li>
+                        ...
+                    </ul>
+                </div>
+            </div>
+
+            ...
+
+        </div>
     </div>
 */
-.projects {
+.projects-container h2 {
+  margin-top: 30px;
+}
+.projects-container .all-projects-container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  align-items: left;
   flex-wrap: wrap;
-  padding: 25px 0;
-  width: 100%;
-  height: auto;
-}
-.projects .project {
-  background-color: black;
-  border-radius: 10px;
-  width: 300px;
-  height: 250px;
-  padding: 20px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
   flex-direction: column;
+  width: 70%;
+  margin-left: 5%;
 }
-.projects .project .project-img-container {
+.projects-container .all-projects-container .project {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+.projects-container .all-projects-container .project .project-img-container {
   width: 150px;
+  height: 150px;
 }
-.projects .project .project-img-container img {
-  width: 100%;
+.projects-container .all-projects-container .project .project-info-container {
+  width: 75%;
 }
-.projects .project h3 {
-  font-size: 16px;
-  margin: 0 auto;
+.projects-container .all-projects-container .project .project-info-container h3 {
+  font-size: 2rem;
 }
-.projects .project p.project-desc {
-  font-size: 14px;
-  padding: 0;
-  margin: 0;
-  width: 100%;
+.projects-container .all-projects-container .project .project-info-container ul {
+  padding-left: 40px;
+  list-style: circle;
 }
-.projects .project ul {
-  width: 100%;
-  font-size: 12px;
-  list-style-type: circle;
-  padding-left: 15px;
+.projects-container .all-projects-container .project .project-info-container ul li {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
 }
 /*
         skeleton: Header
