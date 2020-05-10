@@ -1,58 +1,88 @@
-/*
-    <div class='project'>
-        <h3>Sample</h3>
-        <p>This is a sample project description.</p>
-        <ul class='project-skills-container'>
-            <li>Javascript - React, Material-UI, Context API</li>
-            <li>HTML5</li>
-            <li>CSS3</li>
-        </ul>
+/* 
+    <div class='projects-container main-container'>
+        <h2>Projects</h2>
+        <p>Below are my hobby projects. Each one has a description and a list of technologies used when developing.</p>
+        <div class='all-projects-container'>
+            <div class='project'>
+                <div class='project-img-container'>
+                    <img src={project.imgsrc} />
+                </div>
+                <div class='project-info-container'>
+                    <h3>{project.title}</h3>
+                    <p>{project.desc}</h3>
+                    <h4>Technologies</h4>
+                    <ul>
+                        <li>{project.technologies[i]}</li>
+                        ...
+                    </ul>
+                </div>
+            </div>
+
+            ...
+
+        </div>
     </div>
 */
 
-.projects {
-    .flex-container(space-around, center);
-    flex-wrap: wrap;
-    padding: 25px 0;
+.projects-container {
 
-    width: 100%;
-    height: auto;
+    h2 {
+        margin-top: 30px;
+    }
 
-    .project {
-        background-color: black;
-        border-radius: 10px;
-        width: 300px;
-        height: 250px;
-        padding: 20px;
+    // border: 2px orange solid;
 
-        .flex-container(space-evenly, center);
+    @media @mobile {
+        width: 100%;
+    }
+
+    .all-projects-container {
+        .flex-container(space-between, left);
+        flex-wrap: wrap;
         flex-direction: column;
+        width: 70%;
+        margin-left: 5%;
+
+        @media @mobile {
+            width: 90%;
+            // border: 2px red solid;
+        }
+
         
 
-        .project-img-container {
-            width: 150px;
-            img {
-                width: 100%;
+        .project {
+            .flex-container(space-between, center);
+            flex-direction: row;
+
+            @media @mobile {
+                flex-direction: column;
             }
-        }
 
-        h3 {
-            font-size: 16px;
-            margin: 0 auto;
-        }
+            margin-bottom: 30px;
 
-        p.project-desc {
-            font-size: 14px;
-            padding: 0;
-            margin: 0;
-            width: 100%;
-        }
+            .project-img-container {
+                width: 150px;
+                // border: 3px red solid;
+                height: 150px;
+                // border-radius: 10px;
+            }
 
-        ul {
-            width: 100%;
-            font-size: 12px;
-            list-style-type: circle;
-            padding-left: 15px;
+            .project-info-container {
+                width: 75%;
+
+                h3 {
+                    font-size: 2rem;
+                }
+
+                ul {
+                    padding-left: 40px;
+                    list-style: circle;
+                    li {
+                        font-size: 1.6rem;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
         }
     }
 }

@@ -32,7 +32,7 @@ function createStraight() {
     ssc.classList.add('simple-straight-container');
     // p tags with spans
     const p1 = document.createElement('p');
-    p1.innerHTML = "Hi, my is <span class='text'>Hudson Chamberlain</span>";
+    p1.innerHTML = "Hi, my name is <span class='text'>Hudson Chamberlain</span>";
     ssc.appendChild(p1);
     const p2 = document.createElement('p');
     p2.innerHTML = "and I am a <span class='text'>Full-Stack developer</span>.";
@@ -157,7 +157,21 @@ function addHeader() {
             const link = document.createElement('div');
             link.classList.add(className);
             link.textContent = text;
-            link.addEventListener('click', () => console.log(`clicked link: ${name}`));
+            link.addEventListener('click', () => {
+                console.log(`clicked link: ${name}`);
+                let el;
+                if(name === "About-Me") {
+                    el = document.querySelector('.about-me-container');
+                } else if(name === "Projects") {
+                    el = document.querySelector('.projects-container');
+                } else if(name === 'Contact') {
+                    el = document.querySelector('.contact-container');
+                }
+
+                if(el != undefined) {
+                    el.scrollIntoView({behavior: "smooth"});
+                }
+            });
             
             return link;
         }
@@ -421,7 +435,7 @@ function modifyChart(id, labels, data, height) {
 // modifyCanvas('embedded-chart', ["C/C++"], [4]);
 
 
-function createProjects() {
+function somethingElse() {
     /*
         <div class='projects-container main-container'>
             <h2>Projects</h2>
@@ -443,4 +457,267 @@ function createProjects() {
 
    return pc;
 }
-container.appendChild( createProjects() );
+
+let projects = [
+    {
+        title: "School in the Cloud",
+        desc: "An online meeting place for students to connect with mentors.",
+        imgsrc: "./img/undraw_online_connection.svg",
+        technologies: [
+            "Javascript",
+            "React.js",
+            "Material-UI",
+            "HTML5",
+            "CSS3"
+        ],
+        github: "https://github.com/School-in-the-Cloud/UI"
+    },{
+        title: "Bluetooth LE Controller",
+        desc: "An Android app that interfaces with copyrighted technology to display dynamic information and control the connected device.",
+        imgsrc: "./img/undraw_personal_finance.svg",
+        technologies: [
+            "Android",
+            "Bluetooth Low-Energy",
+            "Java",
+            "GraphView",
+            "XML"
+        ],
+        github: ""
+    },{
+        title: "Software Portfolio Site",
+        desc: "The site you are looking at right now!",
+        imgsrc: "./img/undraw_master_plan.svg",
+        technologies: [
+            "Javascript",
+            "Particles.js",
+            "Greensock",
+            "LESS",
+            "CSS3",
+            "HTML5"
+        ],
+        github: ""
+    }
+]
+
+function createProjects(projs) {
+    console.log('projs', projs);
+    /* 
+        <div class='projects-container main-container'>
+            <h2>Projects</h2>
+            <p>Below are my hobby projects. Each one has a description and a list of technologies used when developing.</p>
+            <div class='all-projects-container'>
+                <div class='project'>
+                    <div class='project-img-container'>
+                        <img src={project.imgsrc} />
+                    </div>
+                    <div class='project-info-container'>
+                        <h3>{project.title}</h3>
+                        <p>{project.desc}</h3>
+                        <h4>Technologies</h4>
+                        <ul>
+                            <li>{project.technologies[i]}</li>
+                            ...
+                        </ul>
+                    </div>
+                </div>
+
+                ...
+
+            </div>
+        </div>
+    */
+
+    const projectsContainer = document.createElement('div');
+    projectsContainer.classList.add('projects-container', 'main-container');
+
+    const header = document.createElement('h2');
+    header.textContent = "Projects";
+    projectsContainer.appendChild(header);
+
+    const text = document.createElement('p');
+    text.textContent = "Below are my hobby projects. Each one has a description and a list of technologies used when developing.";
+    projectsContainer.appendChild(text);
+
+    const allProjectsContainer = document.createElement('div');
+    allProjectsContainer.classList.add('all-projects-container');
+
+    // add all projects to project container
+    function createProject(project) {
+        console.log('project', project);
+        /*
+            <div class='project'>
+                    <div class='project-img-container'>
+                        <img src={project.imgsrc} />
+                    </div>
+                    <div class='project-info-container'>
+                        <h3>{project.title}</h3>
+                        <p>{project.desc}</h3>
+                        <h4>Technologies</h4>
+                        <ul>
+                            <li>{project.technologies[i]}</li>
+                            ...
+                        </ul>
+                    </div>
+                </div>
+        */
+
+        function openInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+
+        const projectContainer = document.createElement('div');
+        projectContainer.classList.add('project');
+        projectContainer.addEventListener('click', () => {
+            if(project.github.length != 0) {
+                openInNewTab(project.github);
+            }
+        })
+
+        const imgContainer = document.createElement('div');
+        imgContainer.classList.add('project-img-container');
+        if(project.imgsrc.length != 0) {
+            let img = document.createElement('img');
+            img.src = project.imgsrc;
+            imgContainer.appendChild(img);
+        }
+        projectContainer.appendChild(imgContainer);
+
+        const projectInfoContainer = document.createElement('div');
+        projectInfoContainer.classList.add('project-info-container');
+        const header = document.createElement('h3');
+        header.textContent = project.title;
+        projectInfoContainer.appendChild(header);
+
+        const desc = document.createElement('p');
+        desc.textContent = project.desc;
+        projectInfoContainer.appendChild(desc);
+
+        // const tHeader = document.createElement('h4');
+        // tHeader.textContent = "Technologies";
+        // projectInfoContainer.appendChild(tHeader);
+
+        const list = document.createElement('ul');
+        project.technologies.forEach( tech => {
+            const item = document.createElement('li');
+            item.textContent = tech;
+            list.appendChild(item);
+        })
+        projectInfoContainer.appendChild(list);
+
+        projectContainer.appendChild(projectInfoContainer);
+
+        return projectContainer;
+        
+    }
+    
+    projs.forEach( (proj) => {
+        allProjectsContainer.appendChild( createProject(proj) );
+    });
+
+    projectsContainer.appendChild(allProjectsContainer);
+
+    return projectsContainer;
+}
+container.appendChild( createProjects(projects) );
+
+let emailInfo = {
+    email: "",
+    company_name: "",
+    interest: ""
+}
+
+function createContactMe() {
+    /*
+
+        <div class='contact-container main-container'>
+            <h2>Contact Me</h2>
+            <p>Fill out this form and we can get in touch!</p>
+            <form onSubmit={submitHandler}>
+                <input placeholder="Email" />
+                <input placeholder="Company Name" />
+                <input placeholder="Interested for..." />
+                <button type="submit">Send it!</button>
+            </form>
+        </div>
+
+    */
+
+    let stillDev = true;
+
+    const contactContainer = document.createElement('div');
+    contactContainer.classList.add('contact-container', 'main-container');
+
+    const header = document.createElement('h2');
+    header.textContent = "Contact";
+    contactContainer.appendChild(header);
+    
+    const touch = document.createElement('p');
+    if(stillDev) {
+        touch.textContent = "Email me at hudson.m.chamberlain@gmail.com for business inquiries!";
+    } else {
+        touch.textContent = "Fill out this form and we can get in touch!";
+    }
+    
+    contactContainer.appendChild(touch);
+
+    if(!stillDev) {
+
+        const form = document.createElement('form');
+        form.onsubmit = (evt) => {
+            evt.preventDefault();
+            console.log('onsubmit', emailInfo);
+
+            Email.send({
+                SecureToken : "<your generated token>",
+                To : 'recipient@example.com',
+                From : "sender@example.com",
+                Subject : "Test Email",
+                Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+                }
+            ).then(
+                message => alert("mail sent successfully")
+            );
+        }
+
+        function handleChange(evt) {
+            emailInfo = {
+                ...emailInfo,
+                [evt.target.name]: evt.target.value
+            }
+        }
+
+        const emailInput = document.createElement('input');
+        emailInput.placeholder = "Email";
+        emailInput.name="email";
+        emailInput.value = emailInfo.email;
+        emailInput.onchange = (evt) => handleChange(evt);
+        form.appendChild(emailInput);
+
+        const companyInput = document.createElement('input');
+        companyInput.placeholder = "Company Name";
+        companyInput.name = "company_name";
+        companyInput.value = emailInfo.company_name;
+        companyInput.onchange = (evt) => handleChange(evt);
+        form.appendChild(companyInput);
+
+        const interestInput = document.createElement('input');
+        interestInput.placeholder = "Interested for...";
+        interestInput.name = "interest";
+        interestInput.value = emailInfo.interest;
+        interestInput.onchange = (evt) => handleChange(evt);
+        form.appendChild(interestInput);
+
+        const sendButton = document.createElement('button');
+        sendButton.type = 'submit';
+        sendButton.style.width = "100px";
+        sendButton.style.height = "50px";
+        sendButton.textContent = "Send it!";
+        form.appendChild(sendButton);
+
+        contactContainer.appendChild(form);
+    }
+
+    return contactContainer;
+}
+container.appendChild( createContactMe() );
