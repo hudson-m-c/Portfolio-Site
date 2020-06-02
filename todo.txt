@@ -1,1 +1,0 @@
-Style up individ projects, articles. get screenshots of projects, fix header position (look into sticky)
