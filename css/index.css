@@ -164,3 +164,28 @@ img {
   max-width: 100%;
   height: auto;
 }
+.img-container {
+  width: 50px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: space-evenly;
+}
+nav .img-container {
+  width: 50px;
+}
+nav a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+  margin: auto 0;
+  padding: 20px;
+}
+nav a:hover {
+  color: pink;
+}
+header {
+  text-align: center;
+  padding: 2.5%;
+}
