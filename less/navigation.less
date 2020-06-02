@@ -1,6 +1,9 @@
 nav {
 
-    .flex-container(center, space-evenly);
+    .flex-container(space-around, center);
+    width: 40%;
+
+    margin: 0 auto;
 
     .img-container {
         width: 50px;
@@ -17,5 +20,16 @@ nav {
         &:hover {
             color: pink;
         }
+    }
+
+}
+
+.links-container {
+    .flex-container(space-around, center);
+    width: 25%;
+    margin: 0 auto;
+
+    .logo-container {
+        width: 75px;
     }
 }

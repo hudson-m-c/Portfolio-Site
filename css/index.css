@@ -187,8 +187,10 @@ section h3 {
 }
 nav {
   display: flex;
-  justify-content: center;
-  align-items: space-evenly;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+  margin: 0 auto;
 }
 nav .img-container {
   width: 50px;
@@ -202,6 +204,16 @@ nav a {
 }
 nav a:hover {
   color: pink;
+}
+.links-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 25%;
+  margin: 0 auto;
+}
+.links-container .logo-container {
+  width: 75px;
 }
 header {
   text-align: center;
